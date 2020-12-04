@@ -68,7 +68,7 @@ class MinHeap:
     def get_min(self) -> object:
         """returns an object with the minumum key without removing it from the heap. If empty, an exception is raised.
         Since the add function already sorts the minheap, index 0 will be returned"""
-        if self.is_empty() == True:
+        if self.heap.length() == 0:
             return MinHeapException
         else:
             return self.heap.get_at_index(0)
@@ -76,7 +76,7 @@ class MinHeap:
     def remove_min(self) -> object:
         """function returns an object with a minumum key and removes it from the heap. If the heap is empty,
         exception is raised. The following procedure was taken from the Heap Implementation lecture for A5 """
-        if self.is_empty() == True: # if array is empty, raise exception
+        if self.heap.length() == 0: # if array is empty, raise exception
             return MinHeapException
         if self.heap.length() == 1: # if array just contains one element, remove it and return the value
             return self.heap.pop()
@@ -140,7 +140,7 @@ class MinHeap:
         self.heap = new_DA # set heap to new array
         if self.heap.length() == 1: # if heap contains only one element, return
             return
-        if self.is_empty() == True: # if empty, raise exception
+        if self.heap.length() == 0: # if empty, raise exception
             raise MinHeapException
         counter = self.heap.length() - 1 # set counter to the full length of the array
         while counter != 0: # iterate throughout the array until the first index
